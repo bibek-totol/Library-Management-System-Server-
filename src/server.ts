@@ -1,14 +1,20 @@
 
 
 import dotenv from 'dotenv';
-import { Request, Response } from 'express';
 import express from 'express';
 import { connectDB } from './config/config';
 import librarydataroute from './routes/librarydataroute';
+import cors from 'cors';
+
 
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+  origin: "http://localhost:5173", 
+  credentials: true
+}));
+
 connectDB();
 dotenv.config();
 
@@ -16,7 +22,7 @@ dotenv.config();
 
 
 
-app.use("/api/librarydata", librarydataroute);
+app.use("/api", librarydataroute);
 
 app.listen(process.env.port, () => {
   console.log(`Server running on port ${process.env.port}`);

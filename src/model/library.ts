@@ -2,17 +2,25 @@ import mongoose from "mongoose";
 
 
 interface IBook {
+   serial_id: number;
     title: string;
     author: string;
     genre: string;
     isbn: string;
+    copies: number;
+    available: boolean;
     publishedDate: Date;
-    availableCopies: number;
+    
 }
 
 
 const bookSchema = new mongoose.Schema <IBook>(
   {
+    serial_id: {
+      type: Number,
+      required: true,
+      unique: true,
+    },
     title: {
       type: String,
       required: true,
@@ -30,17 +38,29 @@ const bookSchema = new mongoose.Schema <IBook>(
       required: true,
       unique: true,
     },
-    publishedDate: {
-      type: Date,
-    },
-    availableCopies: {
+
+    copies:{
       type: Number,
       required: true,
-      default: 1,
+      default: 0,
     },
+
+    available: {
+      type: Boolean,
+      required: true,
+     
+    },
+    publishedDate: {
+      type: Date,
+      required: true,
+    },
+    
+    
+    
   },
   {
     timestamps: true,
+    
   }
 );
 
