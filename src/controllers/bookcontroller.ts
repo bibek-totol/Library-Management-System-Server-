@@ -48,3 +48,26 @@ export const deleteBook = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Server Error", error: err });
   }
 };
+
+
+
+export const editBooks = async (req: Request, res: Response) => {
+  try {
+    const { id } = req.params;
+    const { title, author, genre, isbn, copies } = req.body;
+    console.log(id);
+    const updatedBorrow = await Book.findOneAndUpdate( { serial_id: Number(id )} , 
+      { $set: { title, author, genre, isbn, copies } }
+      , { new: true });
+    if (!updatedBorrow) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+    res.status(200).json({
+      message: "Book updated successfully",
+      updatedBorrow
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Server Error", error: err });
+  }
+};
+
