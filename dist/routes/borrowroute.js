@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const borrowcontroller_1 = require("../controllers/borrowcontroller");
+const router = (0, express_1.Router)();
+router.get("/borrowsummary", borrowcontroller_1.getBorrowSummary);
+router.post("/borrow", borrowcontroller_1.createBorrow);
+router.delete("/borrow/:id", borrowcontroller_1.deleteBorrow);
+router.patch("/edit-borrowsummary/:id", borrowcontroller_1.editBorrow);
+exports.default = router;
