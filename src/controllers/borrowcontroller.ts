@@ -55,10 +55,10 @@ export const deleteBorrow = async (req: Request, res: Response) => {
   export const editBorrow = async (req: Request, res: Response) => {
     try {
       const { id } = req.params;
-      const { title, isbn, copies } = req.body;
+      const { title, isbn, quantity } = req.body;
       console.log(id);
       const updatedBorrow = await Borrow.findOneAndUpdate( { serial_id: Number(id )} , 
-        { $set: { title, isbn, copies } }
+        { $set: { title, isbn, quantity } }
         , { new: true });
       if (!updatedBorrow) {
         return res.status(404).json({ message: "Borrow not found" });
