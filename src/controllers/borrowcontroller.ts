@@ -13,7 +13,8 @@ export const getBorrowSummary = async (req: Request, res: Response) => {
 
 export const createBorrow = async (req: Request, res: Response) => {
   try {
-    const { serial_id,title, isbn, copies,available } = req.body;
+    const { serial_id,title, isbn, copies,available, quantity,due_date } = req.body;
+    
     
    
 
@@ -23,6 +24,8 @@ export const createBorrow = async (req: Request, res: Response) => {
       isbn,
       copies,
       available,
+      quantity,
+      due_date
       
      
      

@@ -7,6 +7,8 @@ interface IBorrow {
     isbn: string;
     copies: number;
     available: boolean;
+    quantity: number;
+    due_date: string;
     
     
 }
@@ -40,6 +42,17 @@ const borrowSchema = new mongoose.Schema <IBorrow>(
       type: Boolean,
       required: true,
      
+    },
+
+    quantity: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
+    due_date: {
+      type: String,
+      required: true,
+      
     },
     
     
