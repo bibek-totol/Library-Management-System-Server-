@@ -30,5 +30,9 @@ app.listen(process.env.port, () => {
   console.log(`Server running on port ${process.env.port}`);
 });
 
+app.get("/", (req, res) => {
+  res.send("Configured your server successfully");  
+});
+
 
 
