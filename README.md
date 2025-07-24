@@ -1,5 +1,5 @@
 # React + TypeScript + Vite
-
+# Live Link: https://library-management-system-client-ashy.vercel.app/
 # 📚 Minimal Library Management System
 
 A minimal yet fully functional library management system built using **React**, **TypeScript**, **Redux Toolkit Query**, and **Node.js/Express** with **MongoDB**. This project demonstrates core CRUD operations, borrowing functionality, and proper API state management—all without user authentication.
